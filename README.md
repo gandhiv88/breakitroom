@@ -2,7 +2,7 @@
 
 **Break it. Test it. Fix it.**
 
-BreakItRoom is an open-source playground for QA engineers, developers, and learners to practice modern software testing on intentionally breakable applications.
+BreakItRoom is an open-source playground for QA engineers, developers, and learners to practice software testing on applications with realistic bugs, edge cases, and failure conditions.
 
 ## What this project will include
 
