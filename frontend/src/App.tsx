@@ -9,6 +9,20 @@ import RoomCard from './RoomCard'
 function App() {
   const [count, setCount] = useState(0)
 
+  type RoomCardData = {
+    title : string
+    description : string
+    status : string
+  }
+
+  const rooms : RoomCardData[] = [
+    {title:'API Room',description:'Practice API Testing scenarios',status:'Coming Soon'},
+    {title:'Accessibility Room',description:'Explore accessibility testing challenges',status:'Coming Soon'},
+    {title:'Shop Room',description:'Try UI testing challenges',status:'Coming Soon'},
+    {title:'Perf Room',description:'Try Perf testing challenges',status:'Coming Soon'},
+
+  ]
+
   return (
     <>
       <section id="center">
@@ -30,9 +44,11 @@ function App() {
         >
           Count is {count}
         </button>
-        <RoomCard title='API Room' description='Practice API Testing Scenarios' status='Coming Soon..'/>
-        <RoomCard title='Accessibility Room' description='Explore accessibility testing challenges' status='Coming Soon..' />
-        <RoomCard title = 'Shop Room' description= 'Try UI testing challenges' status='Build InProgress' />
+        {rooms.map((r) => 
+           (
+            <RoomCard title={r.title} description={r.description} status={r.status}/>
+          )
+        )}
       </section>
 
       <div className="ticks"></div>
