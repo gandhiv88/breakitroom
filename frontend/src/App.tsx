@@ -4,6 +4,8 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import './App.css'
 
+import RoomCard from './RoomCard'
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -28,6 +30,9 @@ function App() {
         >
           Count is {count}
         </button>
+        <RoomCard title='API Room' description='Practice API Testing Scenarios' status='Coming Soon..'/>
+        <RoomCard title='Accessibility Room' description='Explore accessibility testing challenges' status='Coming Soon..' />
+        <RoomCard title = 'Shop Room' description= 'Try UI testing challenges' status='Build InProgress' />
       </section>
 
       <div className="ticks"></div>
