@@ -8,20 +8,25 @@ import RoomCard from './RoomCard'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [showComingSoonOnly, setComingSoonOnlyStatus] = useState(false)
 
   type RoomCardData = {
-    title : string
-    description : string
-    status : string
+    title: string
+    description: string
+    status: string
   }
 
-  const rooms : RoomCardData[] = [
-    {title:'API Room',description:'Practice API Testing scenarios',status:'Coming Soon'},
-    {title:'Accessibility Room',description:'Explore accessibility testing challenges',status:'Coming Soon'},
-    {title:'Shop Room',description:'Try UI testing challenges',status:'Coming Soon'},
-    {title:'Perf Room',description:'Try Perf testing challenges',status:'Coming Soon'},
+  const rooms: RoomCardData[] = [
+    { title: 'API Room', description: 'Practice API Testing scenarios', status: 'Coming Soon' },
+    { title: 'Accessibility Room', description: 'Explore accessibility testing challenges', status: 'Coming Soon' },
+    { title: 'Shop Room', description: 'Try UI testing challenges', status: 'Coming Soon' },
+    { title: 'Perf Room', description: 'Try Perf testing challenges', status: 'Coming Later' },
 
   ]
+
+  const roomsToShow = showComingSoonOnly
+    ? rooms.filter((r) => r.status === 'Coming Soon')
+    : rooms
 
   return (
     <>
@@ -44,11 +49,19 @@ function App() {
         >
           Count is {count}
         </button>
-        {rooms.map((r) => 
-           (
-            <RoomCard title={r.title} description={r.description} status={r.status}/>
-          )
+        <button
+          type='button'
+          onClick={() => setComingSoonOnlyStatus((showComingSoonOnly) => !showComingSoonOnly)}>Show Coming Soon Only Rooms
+        </button>
+
+
+
+        {roomsToShow.map((r) =>
+        (
+          <RoomCard key={r.title} title={r.title} description={r.description} status={r.status} />
+        )
         )}
+
       </section>
 
       <div className="ticks"></div>
